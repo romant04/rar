@@ -78,7 +78,7 @@ function Checkout() {
         ) {
             emailjs
                 .send(
-                    "service_2leofpa",
+                    "service_s5wjqt6",
                     "template_9h3qjge",
                     {
                         name: name,
@@ -86,7 +86,7 @@ function Checkout() {
                         price: `${grandTotal.toLocaleString()} Kč`,
                         address: `${country}, ${city}, ${zip}, ${address}`,
                     },
-                    "h843ifvFtSHOSYb_n"
+                    "Zc2O0BI5cw116m3nT"
                 )
                 .then(
                     (result) => {
@@ -98,14 +98,14 @@ function Checkout() {
                 );
             emailjs
                 .send(
-                    "service_2leofpa",
+                    "service_s5wjqt6",
                     "template_yn2rn6w",
                     {
                         ids: `${items.map((item) => `${item.id} `)}`,
                         email: "roman.tarnai.04@gmail.com",
                         userID: userID,
                     },
-                    "h843ifvFtSHOSYb_n"
+                    "Zc2O0BI5cw116m3nT"
                 )
                 .then(
                     (result) => {
