@@ -89,6 +89,7 @@ function ItemCard({ item }) {
                     },
                 }}
                 src={item.img}
+                alt={item.name}
                 onClick={() => {
                     navigate("/product", { state: { id: item.id } });
                 }}
