@@ -6,7 +6,7 @@ import ItemCard from "./ItemCard";
 
 const PAGE_DIVIDER = 16;
 
-function Items({ filter }) {
+function Items({ filter, search }) {
     const { loading, error, data } = useQuery(GET_ITEMS);
     const [filteredItems, setFilteredItems] = useState(null);
     const [idkItems, setIdkItems] = useState(null);
@@ -23,10 +23,19 @@ function Items({ filter }) {
 
     /* filtrování */
     useEffect(() => {
+        console.log(loading);
         if (!loading) {
-            setIdkItems([...data.items]);
+            if (search) {
+                setIdkItems(
+                    [...data.items].filter((x) =>
+                        x.name.toUpperCase().includes(search.toUpperCase())
+                    )
+                );
+            } else {
+                setIdkItems([...data.items]);
+            }
         }
-    }, [loading, filter, page, data]);
+    }, [loading, filter, page, data, search]);
 
     useEffect(() => {
         if (idkItems) {
@@ -41,12 +50,11 @@ function Items({ filter }) {
             } else if (filter === "značka") {
                 setFilteredItems([...idkItems.sort((a, b) => a.name.localeCompare(b.name))]);
             }
-            console.log(idkItems);
             setFilteredItems(
                 [...idkItems].slice((page - 1) * PAGE_DIVIDER, page * PAGE_DIVIDER)
             );
         }
-    }, [idkItems]);
+    }, [idkItems, search]);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Something went wrong</p>;

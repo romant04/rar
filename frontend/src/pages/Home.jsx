@@ -1,5 +1,5 @@
 import Items from "../components/Items";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import NewItemModal from "../components/NewItemModal";
@@ -26,6 +26,7 @@ function Home() {
 
     // filter buttons styles
     const [selected, setSelected] = useState("");
+    const [search, setSearch] = useState("");
 
     return (
         <Box
@@ -43,6 +44,19 @@ function Home() {
                     Přidat nový předmět
                 </Button>
             )}
+
+            <Stack alignSelf="flex-start" width="max(30%, 15em)">
+                <Typography variant="h6">Search:</Typography>
+                <TextField
+                    sx={{
+                        "& input": {
+                            height: "10px",
+                        },
+                    }}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+            </Stack>
             <Box
                 sx={{
                     gap: ".5em",
@@ -112,7 +126,7 @@ function Home() {
                     },
                 }}
             >
-                <Items filter={selected} />
+                <Items filter={selected} search={search} />
             </Box>
         </Box>
     );
