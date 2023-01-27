@@ -42,12 +42,14 @@ function Header() {
         if (token) {
             setShowLogin(false);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [useLocation(), location]);
 
     useEffect(() => {
         if (!loading) {
             loadUser();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading]);
 
     /* Loads user data from database if theres saved id of user in localstorage */
@@ -76,12 +78,15 @@ function Header() {
     const theme = useSelector((state) => state.theme.theme);
     const [activeSwitch, setActiveSwitch] = useState(false);
     useEffect(() => {
-        if (theme == "dark") {
+        if (theme === "dark") {
             setActiveSwitch(true);
         } else {
             setActiveSwitch(false);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [theme]);
+
+    if (error) return <p>Error..</p>;
 
     return (
         <AppBar
@@ -89,7 +94,6 @@ function Header() {
             sx={{
                 top: 0,
                 paddingBlock: ".75em",
-                background: "rgb(145,16,16)",
                 background: "linear-gradient(90deg, rgba(145,16,16,1) 40%, #324dc5ff 100%)",
             }}
         >

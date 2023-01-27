@@ -4,7 +4,6 @@ import {
     FormControlLabel,
     Radio,
     Typography,
-    Paper,
     Divider,
     RadioGroup,
     TextField,
@@ -60,6 +59,7 @@ function Checkout() {
         if (doprava && platba) {
             setGrandTotal(doprava + platba + total);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [doprava, platba, grandTotal]);
 
     const handleSubmit = (e) => {

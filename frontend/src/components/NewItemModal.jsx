@@ -1,7 +1,6 @@
 import { Paper, Typography, TextField, Button } from "@mui/material";
 import { useMutation } from "@apollo/client";
 import { ADD_ITEM } from "../mutations/itemMutations";
-import { GET_ITEMS } from "../queries/itemQueries";
 import { useState } from "react";
 import { toast } from "react-toastify";
 

@@ -35,6 +35,7 @@ function Items({ filter, search }) {
                 setIdkItems([...data.items]);
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading, filter, page, data, search]);
 
     useEffect(() => {
@@ -54,6 +55,7 @@ function Items({ filter, search }) {
                 [...idkItems].slice((page - 1) * PAGE_DIVIDER, page * PAGE_DIVIDER)
             );
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [idkItems, search]);
 
     if (loading) return <p>Loading...</p>;

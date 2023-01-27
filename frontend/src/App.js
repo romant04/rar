@@ -23,7 +23,7 @@ import { useSelector } from "react-redux";
 
 const client = new ApolloClient({
     uri:
-        process.env.NODE_ENV == "production"
+        process.env.NODE_ENV === "production"
             ? "https://rar-ru.herokuapp.com/graphql"
             : "http://localhost:5000/graphql",
     cache: new InMemoryCache(),

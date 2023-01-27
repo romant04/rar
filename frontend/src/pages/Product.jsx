@@ -26,6 +26,7 @@ function Product() {
         if (!loading) {
             setItem(data?.item);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading]);
 
     /* shupping */
@@ -77,7 +78,8 @@ function Product() {
             });
     };
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <p>Loading..</p>;
+    if (error) return <p>Error..</p>;
 
     return (
         <>
@@ -207,7 +209,6 @@ function Product() {
                                 sx={{
                                     width: "18em",
                                     height: "3em",
-                                    display: "block",
                                     margin: "auto",
                                     display: "flex",
                                     alignItems: "center",

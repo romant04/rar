@@ -29,10 +29,12 @@ function Cart() {
             setItems(itemy);
             countTotal(itemy);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading, data, userLoading, userData]);
 
     useEffect(() => {
         setTotalAsPrice(NumberToPrice(total));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [total]);
 
     const PriceToNumber = (price) => {

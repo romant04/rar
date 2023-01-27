@@ -28,6 +28,8 @@ function Home() {
     const [selected, setSelected] = useState("");
     const [search, setSearch] = useState("");
 
+    if (error) return <p>Error..</p>;
+
     return (
         <Box
             sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2em" }}
@@ -71,7 +73,7 @@ function Home() {
             >
                 <Button
                     color="secondary"
-                    variant={selected == "nejlevnější" ? "contained" : "outlined"}
+                    variant={selected === "nejlevnější" ? "contained" : "outlined"}
                     onClick={() => {
                         setSelected("nejlevnější");
                     }}
@@ -80,7 +82,7 @@ function Home() {
                 </Button>
                 <Button
                     color="secondary"
-                    variant={selected == "nejdražší" ? "contained" : "outlined"}
+                    variant={selected === "nejdražší" ? "contained" : "outlined"}
                     onClick={() => {
                         setSelected("nejdražší");
                     }}
@@ -89,7 +91,7 @@ function Home() {
                 </Button>
                 <Button
                     color="secondary"
-                    variant={selected == "značka" ? "contained" : "outlined"}
+                    variant={selected === "značka" ? "contained" : "outlined"}
                     onClick={() => {
                         setSelected("značka");
                     }}

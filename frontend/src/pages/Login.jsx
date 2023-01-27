@@ -44,6 +44,9 @@ function Login() {
         }
     };
 
+    if (loading) return <p>Loading..</p>;
+    if (error) return <p>Error..</p>;
+
     return (
         <>
             <Box

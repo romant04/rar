@@ -1,6 +1,5 @@
 import { Box, Typography, Paper, Button } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { DELETE_BOUGHT_ITEM } from "../mutations/itemMutations";
 import { GET_ITEMS } from "../queries/itemQueries";
@@ -10,7 +9,7 @@ import { decrement } from "../redux/cartSlice";
 
 function CartItem({ item, userId }) {
     const dispatch = useDispatch();
-    const [quantity, setQuantity] = useState(1);
+    const quantity = 1;
     const id = item.id;
 
     const [deleteBoughtItem] = useMutation(DELETE_BOUGHT_ITEM, {
